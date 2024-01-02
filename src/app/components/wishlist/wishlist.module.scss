@@ -1,0 +1,26 @@
+.title {
+    font-size: 1rem;
+}
+
+.items {
+    display: grid;
+    align-items: stretch;
+    grid-gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
+
+    @media (min-width: $bp-mobile) {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (min-width: $bp-tablet) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (min-width: $bp-desktop) {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    @media (min-width: $bp-desktop-l) {
+        grid-template-columns: repeat(6, 1fr);
+    }
+}

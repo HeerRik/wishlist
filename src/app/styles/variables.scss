@@ -1,0 +1,16 @@
+$screen__sm: 376px;
+$screen__md: 576px;
+$screen__lg: 992px;
+$screen__xl: 1200px;
+$screen__xxl: 1440px;
+$screen__3xl: 1680px;
+$screen__4xl: 1920px;
+
+$bp-mobile: $screen__sm;
+$bp-tablet: $screen__xl;
+$bp-desktop: $screen__xxl;
+$bp-desktop-l: $screen__4xl;
+
+$component__border-radius: .75rem;
+$component__border-radius__s: .25rem;
+$component__border-color: #111111;

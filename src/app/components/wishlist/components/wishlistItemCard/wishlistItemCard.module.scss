@@ -1,0 +1,62 @@
+.card {
+    border-radius: $component__border-radius;
+    border: 1px solid $component__border-color;
+    background-color: #f2f2f2;
+    padding: .5rem;
+
+    @media (prefers-color-scheme: dark) {
+        background-color: #222;
+    }
+}
+
+.card__yoinked {
+
+}
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+}
+
+.image {
+    object-fit: contain;
+    border-radius: $component__border-radius__s;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-size: 1.25rem;
+    line-height: 2rem;
+
+}
+
+.shortDescription {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+.yoink {
+    padding: .25rem;
+    background: #3d3f48;
+    border-radius: $component__border-radius__s;
+    border: 1px solid $component__border-color;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+
+    > span {
+        line-height: 1.5rem;
+        font-size: .75rem;
+        color: white;
+        &:first-child {
+            font-size: 1.5rem;
+        }
+    }
+}
