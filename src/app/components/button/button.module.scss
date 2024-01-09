@@ -1,0 +1,11 @@
+.button {
+    padding: .5rem 1rem;
+    background: $c-steelgrey;
+    border-radius: $component__border-radius__s;
+    border: 1px solid $component__border-color;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: .25rem;
+}

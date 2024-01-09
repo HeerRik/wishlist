@@ -2,21 +2,52 @@
     border-radius: $component__border-radius;
     border: 1px solid $component__border-color;
     background-color: #f2f2f2;
-    padding: .5rem;
+    padding: .75rem;
+    position: relative;
 
     @media (prefers-color-scheme: dark) {
         background-color: #222;
     }
+
+    @media (min-width: $bp-tablet) {
+        padding: 1rem;
+    }
 }
 
 .card__yoinked {
+    composes: card;
 
+    &::after {
+        content: 'yoinked';
+        text-align: center;
+        font-size: .75rem;
+        box-sizing: border-box;
+        position: absolute;
+        padding: 1rem;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        cursor: pointer;
+        background: $c-steelgrey;
+        opacity: 1;
+        transition: opacity .1s ease-in;
+        border-radius: $component__border-radius;
+    }
+
+    &:hover,
+    &:focus {
+        &::after {
+            opacity: .9;
+        }
+    }
 }
 
 .imageWrapper {
     position: relative;
     width: 100%;
     aspect-ratio: 1/1;
+    margin-bottom: .75rem;
 }
 
 .image {
@@ -27,6 +58,7 @@
 .content {
     display: flex;
     flex-direction: column;
+    gap: 1rem 0;
 }
 
 .title {
@@ -36,25 +68,24 @@
 }
 
 .shortDescription {
-    font-size: 1rem;
-    line-height: 1.5rem;
+    font-size: .875rem;
+    line-height: 1.25rem;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .yoink {
-    padding: .25rem;
-    background: #3d3f48;
-    border-radius: $component__border-radius__s;
-    border: 1px solid $component__border-color;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: .25rem;
+    flex-direction: column;
 
     > span {
         line-height: 1.5rem;
         font-size: .75rem;
         color: white;
+
         &:first-child {
             font-size: 1.5rem;
         }

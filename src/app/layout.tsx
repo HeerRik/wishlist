@@ -7,35 +7,36 @@ import '@/app/styles/globals.scss'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'De grote meuk-lijst',
-  description: 'Rikkert moet het ergens bijhouden',
+    title: 'De grote meuk-lijst',
+    description: 'Rikkert moet het ergens bijhouden',
+    robots: 'noindex'
 }
 
 export default function RootLayout({
-  children,
+    children,
 }: {
-  children: ReactNode
+    children: ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
+    return (
+        <html lang="en">
+        <body className={inter.className}>
         <header>
-            <div>{'De grote meuk-lijst'}</div>
-          <nav>
-              <ul>
-                  <li>
-                      <Link href={'/'}>
-                          Home
-                      </Link>
-                  </li>
-              </ul>
-          </nav>
+            {/*<div>{'De grote meuk-lijst'}</div>*/}
+            {/*<nav>*/}
+            {/*    <ul>*/}
+            {/*        <li>*/}
+            {/*            <Link href={'/'}>*/}
+            {/*                Home*/}
+            {/*            </Link>*/}
+            {/*        </li>*/}
+            {/*    </ul>*/}
+            {/*</nav>*/}
         </header>
         <main>
             {children}
         </main>
 
-      </body>
-    </html>
-  )
+        </body>
+        </html>
+    )
 }

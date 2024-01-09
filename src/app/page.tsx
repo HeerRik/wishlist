@@ -8,7 +8,7 @@ export default async function Home() {
 
     return (
         <main className={classes.main}>
-            <h1>De grote meuk-lijst</h1>
+            <h1>Augurik's meuklijst</h1>
             <section>
                 <Wishlist wishlist={wishlist}/>
             </section>
