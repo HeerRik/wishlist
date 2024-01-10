@@ -7,11 +7,11 @@ export default async function Home() {
     const wishlist = await fetchWishlist();
 
     return (
-        <main className={classes.main}>
+        <div>
             <h1>Augurik's meuklijst</h1>
             <section>
                 <Wishlist wishlist={wishlist}/>
             </section>
-        </main>
+        </div>
     )
 }

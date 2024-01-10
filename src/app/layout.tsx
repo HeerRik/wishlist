@@ -1,8 +1,8 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
-import Link from 'next/link';
 import { Inter } from 'next/font/google'
 import '@/app/styles/globals.scss'
+import classes from './baseLayout.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -32,7 +32,7 @@ export default function RootLayout({
             {/*    </ul>*/}
             {/*</nav>*/}
         </header>
-        <main>
+        <main className={classes.main}>
             {children}
         </main>
 
