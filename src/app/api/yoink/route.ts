@@ -6,6 +6,10 @@ import {
 
 export async function POST(request: Request) {
     try {
+        const body = await request.json();
+        console.log(body);
+
+
         const { searchParams } = new URL(request.url);
         const newWishlistItem = {
             wishlistId: searchParams.get('wishlist'),
@@ -18,7 +22,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ result }, { status: 200 });
         }
 
-        return NextResponse.json({ 'error': 'invalid input' }, { status: 401 });
+        return NextResponse.json({ 'error': 'invalid input' }, { status: 422 });
     } catch (error) {
         return NextResponse.json({ error }, { status: 500 });
     }

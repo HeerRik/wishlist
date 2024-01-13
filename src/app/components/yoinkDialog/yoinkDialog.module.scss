@@ -1,0 +1,87 @@
+.wrapper {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    justify-content: center;
+    align-items: center;
+    display: none;
+    left: 50%;
+    top: 50%;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.wrapper__open {
+    composes: wrapper;
+    display: flex;
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.dialog {
+    opacity: 0;
+    visibility: hidden;
+    width: 600px;
+    background: $c-steelgrey;
+    border-radius: $component__border-radius;
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    border: 1px solid $component__border-color;
+}
+
+.dialog__open {
+    composes: dialog;
+    animation: .2s linear 0s 1 forwards dialog-pop-in;
+    visibility: visible;
+    opacity: 1;
+}
+
+
+.yoinkButton {
+    flex-direction: column;
+
+    > span {
+        line-height: 1.5rem;
+        font-size: .75rem;
+        color: white;
+
+        &:first-child {
+            font-size: 1.5rem;
+        }
+    }
+}
+
+.dialogContent {
+    padding: 1rem;
+}
+
+.closeButton {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: .25rem;
+    z-index: 1;
+    line-height: 1rem;
+    height: 1.5rem;
+    width:1.5rem;
+    border-radius: 0 0 0 $component__border-radius__s;
+    border: solid $component__border-color;
+    border-width: 0 0 1px 1px;
+}
+
+@keyframes dialog-pop-in {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+
+    20% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}

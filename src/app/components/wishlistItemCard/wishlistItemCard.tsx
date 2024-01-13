@@ -1,11 +1,13 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { useState } from 'react';
 import type { WishlistItem } from '@/types/wishlist'
 
 import {
     LinkButton,
     Button
 } from '@/app/components/button'
+import { YoinkDialog } from '@/app/components/yoinkDialog'
 import classes from './wishlistItemCard.module.scss'
 
 export interface WishlistItemCardProps {
@@ -15,8 +17,6 @@ export interface WishlistItemCardProps {
 export const WishlistItemCard = ({
     wishlistItem,
 }: WishlistItemCardProps) => {
-    const handleYoink = () => {};
-
     return (
         <article className={wishlistItem.isYoinked ? classes.card__yoinked : classes.card}>
             <div className={classes.imageWrapper}>
@@ -33,24 +33,20 @@ export const WishlistItemCard = ({
             <div className={classes.content}>
                 <Link
                     className={classes.title}
-                    href={'/thing/'.concat(wishlistItem.identifier)}
+                    href={'/thing/'.concat(wishlistItem.code)}
                 >
                     {wishlistItem.name}
                 </Link>
                 <p className={classes.shortDescription}>{wishlistItem.shortDescription}</p>
-                <div className={classes.buttons}>
+                <div className={classes.actions}>
                     <LinkButton
-                        href={'/thing/'.concat(wishlistItem.identifier)}
+                        href={'/thing/'.concat(wishlistItem.code)}
                     >
-                        >
+                        {'>'}
                     </LinkButton>
-                    <Button
-                        onClick={handleYoink}
-                        extraClasses={classes.yoink}
-                    >
-                        <span>🤝</span>
-                        <span>yoink</span>
-                    </Button>
+                    <YoinkDialog
+                        wishlistItem={wishlistItem}
+                    />
                 </div>
             </div>
         </article>

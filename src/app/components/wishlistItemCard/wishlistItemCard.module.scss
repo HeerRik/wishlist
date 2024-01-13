@@ -72,22 +72,8 @@
     line-height: 1.25rem;
 }
 
-.buttons {
+.actions {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.yoink {
-    flex-direction: column;
-
-    > span {
-        line-height: 1.5rem;
-        font-size: .75rem;
-        color: white;
-
-        &:first-child {
-            font-size: 1.5rem;
-        }
-    }
 }

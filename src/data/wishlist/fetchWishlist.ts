@@ -16,8 +16,6 @@ export const fetchWishlist = async (
         //     FETCH_WISHLIST_ITEMS(queryParam),
         // ]);
 
-        console.log(items);
-
         if (wishlist.rowCount === 1) {
             return mapWishlist({
                 ...wishlist.rows[0],

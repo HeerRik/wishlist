@@ -1,5 +1,5 @@
 import type { Wishlist as WishlistType } from '@/types/wishlist'
-import { WishlistItemCard } from '@/app/components/wishlist/components/wishlistItemCard'
+import { WishlistItemCard } from '@/app/components/wishlistItemCard'
 import classes from './wishlist.module.scss'
 
 export interface WishlistProps {
@@ -15,7 +15,7 @@ export const Wishlist = ({
             <div className={classes.items}>
                 {wishlist.items?.map((wishlistItem, i) => (
                     <WishlistItemCard
-                        key={`${wishlistItem.identifier}_${i})`}
+                        key={`${wishlistItem.code}_${i})`}
                         wishlistItem={wishlistItem}
                     />
                 ))}
