@@ -1,6 +1,7 @@
 export interface WishlistItem {
+    id: number;
+    code: string;
     name: string;
-    identifier: string;
     description?: string;
     shortDescription?: string;
     image?: string;
@@ -8,7 +9,8 @@ export interface WishlistItem {
 }
 
 export interface Wishlist {
+    id: number;
+    code: string;
     name: string;
-    identifier: string;
-    items: WishlistItem[];
+    items?: WishlistItem[];
 }
