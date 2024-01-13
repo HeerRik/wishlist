@@ -1,7 +1,7 @@
 import { WishlistItem } from '@/types/wishlist'
-import { SQLWishlistItem } from '@/types/sql/wishlist';
+import { SQLWishlistItem } from '@/types/sql/wishlist'
 
-export default (resultFromDatabase: SQLWishlistItem): WishlistItem => {
+const mapWishlistItem = (resultFromDatabase: SQLWishlistItem): WishlistItem => {
     return {
         id: resultFromDatabase.id,
         code: resultFromDatabase.code,
@@ -12,3 +12,5 @@ export default (resultFromDatabase: SQLWishlistItem): WishlistItem => {
         isYoinked: !!resultFromDatabase.is_yoinked
     }
 }
+
+export default mapWishlistItem

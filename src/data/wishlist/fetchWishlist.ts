@@ -1,4 +1,4 @@
-import type { Wishlist } from '@/types/wishlist';
+import type { Wishlist } from '@/types/wishlist'
 import { FETCH_WISHLIST } from '@/data/queries/wishlist/get'
 import {
     FETCH_WISHLIST_ITEMS,
