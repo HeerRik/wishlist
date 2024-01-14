@@ -10,10 +10,10 @@ export async function GET(request: Request) {
 
         const newWishlist = {
             name: searchParams.get('name'),
-            identifier: searchParams.get('identifier')
+            code: searchParams.get('code')
         };
 
-        if (newWishlist.name && newWishlist.identifier) {
+        if (newWishlist.name && newWishlist.code) {
             const result = await INSERT_WISHLIST(newWishlist);
 
             return NextResponse.json({ result }, { status: 200 });
