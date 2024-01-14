@@ -4,6 +4,8 @@ import { sql } from '@vercel/postgres'
 
 export const FETCH_WISHLIST_ITEMS = async ({
     wishlistId
+}: {
+    wishlistId: number;
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
         id,
@@ -26,6 +28,8 @@ export const FETCH_WISHLIST_ITEMS = async ({
 
 export const FETCH_ITEM_YOINK = ({
     itemId
+}: {
+    itemId: number;
 }): Promise<QueryResult<{is_yoinked?: boolean}>> => sql`
     SELECT
         is_yoinked
@@ -39,6 +43,10 @@ export const FETCH_WISHLIST_ITEMS_JOINED = ({
     wishlistCode,
     limit = 1000,
     offset = 0,
+}: {
+    wishlistCode: string;
+    limit?: number;
+    offset?: number;
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
         i.id AS id,
@@ -63,6 +71,8 @@ export const FETCH_WISHLIST_ITEMS_JOINED = ({
 
 export const FETCH_ITEM_BY_CODE = ({
     itemCode,
+}: {
+    itemCode: string;
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
         i.id AS id,
@@ -83,6 +93,8 @@ export const FETCH_ITEM_BY_CODE = ({
 
 export const FETCH_ITEM_BY_ID = ({
     itemId,
+}: {
+    itemId: number;
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
         i.id AS id,

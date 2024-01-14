@@ -4,7 +4,7 @@ export interface WishlistItem {
     name: string;
     description?: string;
     shortDescription?: string;
-    image?: string;
+    image: string;
     isYoinked: boolean;
 }
 

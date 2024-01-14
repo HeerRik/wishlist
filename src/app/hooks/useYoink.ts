@@ -5,6 +5,9 @@ export const useYoink = () => {
     const yoinkItem = async ({
         itemId,
         yoinker
+    }: {
+        itemId: number;
+        yoinker: string;
     }) => {
         const result = await post({
             route: 'yoink',

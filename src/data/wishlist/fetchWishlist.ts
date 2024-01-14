@@ -6,7 +6,7 @@ import {
 import mapWishlist from '@/data/mappers/wishlist'
 
 export const fetchWishlist = async (
-    wishlistCode,
+    wishlistCode: string,
 ): Promise<Wishlist | { error: boolean }> => {
     try {
         const [wishlist, items] = await Promise.all([

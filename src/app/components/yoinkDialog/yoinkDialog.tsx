@@ -1,5 +1,5 @@
 "use client"
-
+import { FormEvent } from 'react';
 import { useState } from 'react'
 import type { WishlistItem } from '@/types/wishlist'
 import { useYoink } from '@/app/hooks/useYoink'
@@ -19,10 +19,13 @@ export const YoinkDialog = ({
         setIsOpen(true)
     };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const yoinker = e.currentTarget.elements[`yoinker-${wishlistItem.id}`].value;
-        try{
+
+        const input = e.currentTarget.elements.namedItem(`yoinker-${wishlistItem.id}`) as HTMLInputElement;
+        const yoinker = input.value;
+
+        try {
             const result = await yoinkItem({
                 itemId: wishlistItem.id,
                 yoinker,
@@ -68,6 +71,7 @@ export const YoinkDialog = ({
                                 <input
                                     type={'text'}
                                     id={`yoinker-${wishlistItem.id}`}
+                                    name={`yoinker-${wishlistItem.id}`}
                                     placeholder={'mail/code/whatever'}
                                 />
                                 <label htmlFor={`yoinker-${wishlistItem.id}`}>

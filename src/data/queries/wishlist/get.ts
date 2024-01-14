@@ -5,6 +5,9 @@ import { sql } from '@vercel/postgres'
 export const FETCH_WISHLISTS = ({
     limit = 100,
     offset = 0
+}: {
+    limit?: number;
+    offset?: number;
 }): Promise<QueryResult<SQLWishlist>> => sql`
     SELECT 
         id,
@@ -17,6 +20,8 @@ export const FETCH_WISHLISTS = ({
 `
 export const FETCH_WISHLIST = ({
     wishlistCode
+}: {
+    wishlistCode: string;
 }): Promise<QueryResult<SQLWishlist>> => sql`
     SELECT 
         id,

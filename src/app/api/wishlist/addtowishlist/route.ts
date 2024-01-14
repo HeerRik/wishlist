@@ -8,11 +8,11 @@ export async function GET(request: Request) {
     try {
         const { searchParams } = new URL(request.url);
         const newWishlistItem = {
-            wishlistId: searchParams.get('wishlist'),
-            itemId: searchParams.get('item'),
+            wishlistId: (searchParams.get('wishlist') || 0) as number,
+            itemId: (searchParams.get('item') || 0) as number,
         };
 
-        if (newWishlistItem.wishlistId && newWishlistItem.itemId) {
+        if (newWishlistItem.wishlistId > 0 && newWishlistItem.itemId > 0) {
             const result = await ADD_TO_WISHLIST(newWishlistItem);
 
             return NextResponse.json({ result }, { status: 200 });

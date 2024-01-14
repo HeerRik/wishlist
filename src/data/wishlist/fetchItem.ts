@@ -5,7 +5,7 @@ import {
 import mapWishlistItem from '@/data/mappers/wishlistItem'
 
 export const fetchItem = async (
-    itemCode,
+    itemCode: string,
 ): Promise<WishlistItem | {error: boolean}> => {
     try {
         const item = await FETCH_ITEM_BY_CODE({itemCode});

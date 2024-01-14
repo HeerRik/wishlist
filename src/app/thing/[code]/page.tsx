@@ -6,7 +6,7 @@ import classes from './page.module.scss'
 export default async function Thing({ params }: { params: { code: string } }) {
     const wishlistItemResult = await fetchItem(params.code);
 
-    if (Object.hasOwn(wishlistItem, 'error')) {
+    if (Object.hasOwn(wishlistItemResult, 'error')) {
         return <h1>{'Oeps'}</h1>
     }
     const wishlistItem = wishlistItemResult as WishlistItem;

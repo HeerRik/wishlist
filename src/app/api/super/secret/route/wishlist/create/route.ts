@@ -9,11 +9,11 @@ export async function GET(request: Request) {
         const { searchParams } = new URL(request.url);
 
         const newWishlist = {
-            name: searchParams.get('name'),
-            code: searchParams.get('code')
+            name: searchParams.get('name') || '',
+            code: searchParams.get('code') || ''
         };
 
-        if (newWishlist.name && newWishlist.code) {
+        if (newWishlist.name.length && newWishlist.code.length) {
             const result = await INSERT_WISHLIST(newWishlist);
 
             return NextResponse.json({ result }, { status: 200 });
