@@ -37,8 +37,8 @@ export const useAPI = () => {
             const req = await fetch(
                 `/api/${route}`,
                 {
-                    method: 'GET',
-                    body: body || {},
+                    method: 'POST',
+                    body: body,
                     ...requestParams
                 }
             );

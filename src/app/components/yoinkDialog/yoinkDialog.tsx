@@ -11,21 +11,26 @@ export interface YoinkDialogProps {
 }
 
 export const YoinkDialog = ({
-    wishlistItem
+    wishlistItem,
 }: YoinkDialogProps) => {
     const { yoinkItem } = useYoink();
-    const [yoinker, setYoinker] = useState('');
     const [isOpen, setIsOpen] = useState(false);
     const handleYoink = () => {
         setIsOpen(true)
     };
 
-    const handleConfirm = () => {
-        yoinkItem({
-            itemId: wishlistItem.id,
-            yoinker
-        })
-        setIsOpen(false)
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const yoinker = e.currentTarget.elements[`yoinker-${wishlistItem.id}`].value;
+        try{
+            const result = await yoinkItem({
+                itemId: wishlistItem.id,
+                yoinker,
+            })
+            console.log(result);
+        } catch (e) {
+            console.log(e);
+        }
     }
 
     return (
@@ -34,8 +39,8 @@ export const YoinkDialog = ({
                 onClick={handleYoink}
                 extraClasses={classes.yoinkButton}
             >
-                <span>🤝</span>
-                <span>yoink</span>
+                <span>{'🤝'}</span>
+                <span>{'yoink'}</span>
             </Button>
             <div
                 className={isOpen ? classes.wrapper__open : classes.wrapper}
@@ -49,18 +54,35 @@ export const YoinkDialog = ({
                     <button
                         className={classes.closeButton}
                         onClick={() => setIsOpen(false)}
-                        >
+                        type={'button'}
+                    >
                         {'X'}
                     </button>
                     <div className={classes.dialogContent}>
-                        <p>Ik ben een dialog!</p>
-                        <div>
-                            <input
-                                type={'text'}
-                                onInput={(e) => {console.log(e);}}
-                                value={yoinker}
-                            />
-                        </div>
+                        <p>{'Vul hier je mail of iets anders in, dan kan je je yoink ook weer ongedaan maken 🙂'}</p>
+                        <form
+                            className={classes.form}
+                            onSubmit={handleSubmit}
+                        >
+                            <div className={classes.inputWrapper}>
+                                <input
+                                    type={'text'}
+                                    id={`yoinker-${wishlistItem.id}`}
+                                    placeholder={'mail/code/whatever'}
+                                />
+                                <label htmlFor={`yoinker-${wishlistItem.id}`}>
+                                    {'mail/code/whatever'}
+                                </label>
+                            </div>
+                            <div className={classes.confirm}>
+                                <Button
+                                    type={'submit'}
+                                    extraClasses={classes.confirmButton}
+                                >
+                                    <span>{'🤝'}</span>
+                                </Button>
+                            </div>
+                        </form>
                     </div>
                 </aside>
             </div>

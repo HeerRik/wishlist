@@ -6,7 +6,7 @@ export const FETCH_WISHLIST_ITEMS = async ({
     wishlistId
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
-        id
+        id,
         name,
         code,
         image,
@@ -41,6 +41,7 @@ export const FETCH_WISHLIST_ITEMS_JOINED = ({
     offset = 0,
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
+        i.id AS id,
         i.name AS name,
         i.code AS code,
         i.image AS image,
@@ -64,6 +65,7 @@ export const FETCH_ITEM_BY_CODE = ({
     itemCode,
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
+        i.id AS id,
         i.name AS name,
         i.code AS code,
         i.image AS image,
@@ -83,6 +85,7 @@ export const FETCH_ITEM_BY_ID = ({
     itemId,
 }): Promise<QueryResult<SQLWishlistItem>> => sql`
     SELECT
+        i.id AS id,
         i.name AS name,
         i.code AS code,
         i.image AS image,
