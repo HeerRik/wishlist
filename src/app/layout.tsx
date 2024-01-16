@@ -1,7 +1,7 @@
 import type { ReactNode } from 'react'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
-import '@/app/styles/globals.scss'
+import '@/styles/globals.scss'
 import classes from './baseLayout.module.scss'
 
 const inter = Inter({ subsets: ['latin'] })

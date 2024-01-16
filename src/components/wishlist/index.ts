@@ -1,0 +1,1 @@
+export { Wishlist } from '@/components/wishlist/wishlist';

@@ -30,7 +30,7 @@ export const FETCH_ITEM_YOINK = ({
     itemId
 }: {
     itemId: number;
-}): Promise<QueryResult<{is_yoinked?: boolean}>> => sql`
+}): Promise<QueryResult<{is_yoinked: boolean}>> => sql`
     SELECT
         is_yoinked
     FROM

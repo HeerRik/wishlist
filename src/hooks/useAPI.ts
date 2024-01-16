@@ -34,16 +34,21 @@ export const useAPI = () => {
         requestParams?: RequestInit;
     }) => {
         try {
-            const req = await fetch(
+            const reqInit = {
+                method: 'POST',
+                body: JSON.stringify(body),
+                headers: {
+                    'content-type': 'application/json',
+                },
+                ...requestParams,
+            } as RequestInit;
+
+            const res = await fetch(
                 `/api/${route}`,
-                {
-                    method: 'POST',
-                    body: body,
-                    ...requestParams
-                }
+                reqInit,
             );
 
-            if (req.ok) return req.json();
+            if (res.ok) return res.json();
 
             return {error: 'Oeps'}
 

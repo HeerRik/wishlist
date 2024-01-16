@@ -35,7 +35,7 @@ export const YOINK_ITEM = ({
     yoinker: string;
 }) => sql`
     INSERT INTO yoinks
-        (item_id, yoinker)
+        (item_id, yoinker, is_yoinked)
     VALUES
-        (${itemId}, ${yoinker})
+        (${itemId}, ${yoinker}, true)
 `

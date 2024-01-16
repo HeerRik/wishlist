@@ -4,18 +4,17 @@ import {
     ADD_TO_WISHLIST
 } from '@/data/queries/item/create';
 
-export async function GET(request: Request) {
+export async function POST(request: Request) {
     try {
-        const { searchParams } = new URL(request.url);
-        const newWishlistItem = {
-            wishlistId: (searchParams.get('wishlist') || 0) as number,
-            itemId: (searchParams.get('item') || 0) as number,
+        const body = await request.json() as {
+            itemId: number;
+            wishlistId: number;
         };
 
-        if (newWishlistItem.wishlistId > 0 && newWishlistItem.itemId > 0) {
-            const result = await ADD_TO_WISHLIST(newWishlistItem);
+        if (body.wishlistId > 0 && body.itemId > 0) {
+            const result = await ADD_TO_WISHLIST(body);
 
-            return NextResponse.json({ result }, { status: 200 });
+            return NextResponse.json({ success: result.rowCount === 1 }, { status: 200 });
         }
 
         return NextResponse.json({ 'error': 'invalid input' }, { status: 401 });

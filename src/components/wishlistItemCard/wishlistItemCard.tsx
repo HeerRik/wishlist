@@ -6,8 +6,8 @@ import type { WishlistItem } from '@/types/wishlist'
 import {
     LinkButton,
     Button
-} from '@/app/components/button'
-import { YoinkDialog } from '@/app/components/yoinkDialog'
+} from '@/components/button'
+import { YoinkDialog } from '@/components/yoinkDialog'
 import classes from './wishlistItemCard.module.scss'
 
 export interface WishlistItemCardProps {

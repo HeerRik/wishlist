@@ -1,5 +1,5 @@
-import type { QueryResult } from '@vercel/postgres';
-import type { SQLWishlist } from '@/types/sql/wishlist';
+import type { QueryResult } from '@vercel/postgres'
+import type { SQLWishlist } from '@/types/sql/wishlist'
 import { sql } from '@vercel/postgres'
 
 export const FETCH_WISHLISTS = ({

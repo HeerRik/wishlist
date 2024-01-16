@@ -1,0 +1,38 @@
+.inputWrapper {
+    display: flex;
+    position: relative;
+    flex-grow: 1;
+
+    label {
+        position: absolute;
+        left: .5rem;
+        top: .5rem;
+        font-size: 1rem;
+        line-height: 1.5rem;
+        transform-origin: top left;
+        transition: .2s ease-in;
+        color: #c8cfe5;
+        pointer-events: none;
+    }
+
+    input {
+        flex-grow: 1;
+        border: 1px solid $c-steelgrey-light;
+        background: $c-steelgrey-light;
+        border-radius: $component__border-radius__s;
+        padding: .75rem .5rem .25rem;
+        line-height: 1.5rem;
+        font-size: 1rem;
+
+        &::placeholder {
+            opacity: 0;
+        }
+
+        &:focus ,
+        &:not(:placeholder-shown) {
+            & + label {
+                transform: scale(.5) translateY(-.5rem);
+            }
+        }
+    }
+}

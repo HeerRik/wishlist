@@ -1,5 +1,5 @@
 import type { Wishlist as WishlistType } from '@/types/wishlist'
-import { WishlistItemCard } from '@/app/components/wishlistItemCard'
+import { WishlistItemCard } from '@/components/wishlistItemCard'
 import classes from './wishlist.module.scss'
 
 export interface WishlistProps {

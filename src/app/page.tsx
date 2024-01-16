@@ -1,7 +1,7 @@
 import type { Wishlist as WishlistType } from '@/types/wishlist'
 import { fetchWishlist } from '@/data/wishlist/fetchWishlist'
 
-import { Wishlist } from '@/app/components/wishlist'
+import { Wishlist } from '@/components/wishlist'
 import classes from './page.module.scss'
 
 export default async function Home() {
