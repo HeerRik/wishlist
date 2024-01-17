@@ -12,6 +12,7 @@ export const FETCH_WISHLIST_ITEMS = async ({
         name,
         code,
         image,
+        yoinkable,
         short_description
     FROM
         items
@@ -54,6 +55,7 @@ export const FETCH_WISHLIST_ITEMS_JOINED = ({
         i.code AS code,
         i.image AS image,
         i.short_description AS short_description,
+        i.yoinkable AS yoinkable,
         y.is_yoinked AS is_yoinked
     FROM
         wishlists AS w
@@ -81,6 +83,7 @@ export const FETCH_ITEM_BY_CODE = ({
         i.image AS image,
         i.short_description AS short_description,
         i.description AS description,
+        i.yoinkable AS yoinkable,
         y.is_yoinked AS is_yoinked
     FROM
         items AS i
@@ -103,6 +106,7 @@ export const FETCH_ITEM_BY_ID = ({
         i.image AS image,
         i.short_description AS short_description,
         i.description AS description,
+        i.yoinkable AS yoinkable,
         y.is_yoinked AS is_yoinked
     FROM
         items AS i

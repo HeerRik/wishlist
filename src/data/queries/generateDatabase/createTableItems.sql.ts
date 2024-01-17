@@ -7,6 +7,7 @@ export const CREATE_TABLE_ITEMS = () => sql`
         name varchar(255) NOT NULL,
         short_description varchar(255),
         description TEXT,
-        image varchar(255)
+        image varchar(255),
+        yoinkable BOOLEAN
     );
 `

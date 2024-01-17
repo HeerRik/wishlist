@@ -9,7 +9,8 @@ const mapWishlistItem = (resultFromDatabase: SQLWishlistItem): WishlistItem => {
         image: resultFromDatabase.image || '',
         description: resultFromDatabase.description || '',
         shortDescription: resultFromDatabase.short_description || '',
-        isYoinked: !!resultFromDatabase.is_yoinked
+        isYoinked: !!resultFromDatabase.is_yoinked,
+        yoinkable: !!resultFromDatabase.yoinkable,
     }
 }
 

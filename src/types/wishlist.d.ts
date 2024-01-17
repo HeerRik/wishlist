@@ -6,6 +6,7 @@ export interface WishlistItem {
     shortDescription?: string;
     image: string;
     isYoinked: boolean;
+    yoinkable: boolean;
 }
 
 export interface Wishlist {

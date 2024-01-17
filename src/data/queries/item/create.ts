@@ -1,17 +1,20 @@
 import { sql } from '@vercel/postgres'
-import { WishlistItem } from '@/types/wishlist';
+import { QueryResult } from '@vercel/postgres'
+import { SQLWishlistItem } from '@/types/sql/wishlist';
 
 export const INSERT_ITEM = ({
     name,
     code,
     image,
-    shortDescription,
-    description
-}: Omit<WishlistItem, 'id' | 'isYoinked'>) => sql`
+    short_description,
+    description,
+    yoinkable
+}: Omit<SQLWishlistItem, 'id' | 'is_yoinked'>): Promise<QueryResult<{id: number}>> => sql`
     INSERT INTO items
-        (name, code, image, short_description, description)
+        (name, code, image, short_description, description, yoinkable)
     VALUES
-        (${name}, ${code}, ${image}, ${shortDescription}, ${description})
+        (${name}, ${code}, ${image}, ${short_description}, ${description}, true)
+        RETURNING id
 `
 
 export const ADD_TO_WISHLIST = ({

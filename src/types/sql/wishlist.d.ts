@@ -6,6 +6,7 @@ export interface SQLWishlistItem {
     readonly short_description?: string;
     readonly image?: string;
     readonly is_yoinked?: boolean | null | undefined;
+    readonly yoinkable?: boolean | null | undefined;
 }
 
 export interface SQLWishlist {

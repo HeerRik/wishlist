@@ -1,12 +1,8 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { useState } from 'react';
 import type { WishlistItem } from '@/types/wishlist'
 
-import {
-    LinkButton,
-    Button
-} from '@/components/button'
+import { LinkButton } from '@/components/button'
 import { YoinkDialog } from '@/components/yoinkDialog'
 import classes from './wishlistItemCard.module.scss'
 
@@ -20,15 +16,20 @@ export const WishlistItemCard = ({
     return (
         <article className={wishlistItem.isYoinked ? classes.card__yoinked : classes.card}>
             <div className={classes.imageWrapper}>
-                {wishlistItem.image && (
-                    <Image
-                        src={wishlistItem.image}
-                        className={classes.image}
-                        fill={true}
-                        alt={''}
-                        unoptimized
-                    />
-                )}
+                <Link href={'/thing/'.concat(wishlistItem.code)}>
+                    {wishlistItem.image
+                        ? (
+                            <Image
+                                src={wishlistItem.image}
+                                className={classes.image}
+                                fill={true}
+                                alt={''}
+                                unoptimized
+                            />
+                        )
+                        : <div className={classes.imagePlaceholder}/>
+                    }
+                </Link>
             </div>
             <div className={classes.content}>
                 <Link
@@ -44,9 +45,11 @@ export const WishlistItemCard = ({
                     >
                         {'>'}
                     </LinkButton>
-                    <YoinkDialog
-                        wishlistItem={wishlistItem}
-                    />
+                    {wishlistItem.yoinkable && (
+                        <YoinkDialog
+                            wishlistItem={wishlistItem}
+                        />
+                    )}
                 </div>
             </div>
         </article>

@@ -17,7 +17,7 @@ export const Button = ({
 }: ButtonProps) => {
     return (
         <button
-            className={`${classes.button} ${extraClasses}`}
+            className={`${classes.button} ${extraClasses || ''}`}
             onClick={onClick}
             type={type}
         >

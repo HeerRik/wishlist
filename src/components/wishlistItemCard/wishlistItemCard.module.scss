@@ -4,6 +4,9 @@
     background-color: #f2f2f2;
     padding: .75rem;
     position: relative;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    grid-gap: .5rem;
 
     @media (prefers-color-scheme: dark) {
         background-color: #222;
@@ -47,24 +50,36 @@
     position: relative;
     width: 100%;
     aspect-ratio: 1/1;
-    margin-bottom: .75rem;
+    background: $c-steelgrey-light;
+    cursor: pointer;
 }
 
 .image {
-    object-fit: contain;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
     border-radius: $component__border-radius__s;
+}
+
+.imagePlaceholder {
+    width: 100%;
+    height: 100%;
+    background: $c-steelgrey-light;
+    position: absolute;
+    left: 0;
+    top: 0;
 }
 
 .content {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     gap: 1rem 0;
 }
 
 .title {
     font-size: 1.25rem;
     line-height: 2rem;
-
 }
 
 .shortDescription {

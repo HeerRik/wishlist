@@ -20,7 +20,7 @@ export const YoinkDialog = ({
     const handleYoink = () => {
         setIsOpen(true)
     };
-console.log(loading, submitted, success)
+
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 

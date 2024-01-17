@@ -15,7 +15,8 @@
         pointer-events: none;
     }
 
-    input {
+    input,
+    textarea {
         flex-grow: 1;
         border: 1px solid $c-steelgrey-light;
         background: $c-steelgrey-light;
@@ -28,11 +29,16 @@
             opacity: 0;
         }
 
-        &:focus ,
+        &:focus,
         &:not(:placeholder-shown) {
             & + label {
                 transform: scale(.5) translateY(-.5rem);
             }
         }
+    }
+
+    textarea {
+        height: 9rem;
+        font-family: inherit;
     }
 }
