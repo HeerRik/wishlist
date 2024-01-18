@@ -19,9 +19,12 @@
     grid-area: image;
     position: relative;
     aspect-ratio: 1/1;
+    border-radius: $component__border-radius__s;
+    overflow: hidden;
 }
 
 .image {
+    object-fit: cover;
 }
 
 .imagePlaceholder {

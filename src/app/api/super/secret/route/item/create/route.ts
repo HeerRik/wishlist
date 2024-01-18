@@ -1,9 +1,11 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
+
 import type { SQLWishlistItem } from '@/types/sql/wishlist'
 
 import {
     INSERT_ITEM,
-    ADD_TO_WISHLIST
+    ADD_TO_WISHLIST,
 } from '@/data/queries/item/create'
 
 export async function GET(request: Request) {
@@ -19,6 +21,7 @@ export async function GET(request: Request) {
 
         if (newItem.name.length && newItem.code.length) {
             const result = await INSERT_ITEM(newItem);
+            revalidatePath('/');
 
             return NextResponse.json({ result }, { status: 200 });
         }
@@ -31,10 +34,10 @@ export async function GET(request: Request) {
 
 export async function POST(request: Request) {
     try {
-        const body = await request.json() as Omit<SQLWishlistItem, 'id' | 'is_yoinked'> & {pass: string;}
+        const body = await request.json() as Omit<SQLWishlistItem, 'id' | 'is_yoinked'> & { pass: string; }
 
         if (body.pass !== process.env.ADMIN_PASS) {
-            return NextResponse.json({error: true}, { status: 401})
+            return NextResponse.json({ error: true }, { status: 401 })
         }
 
         if (body.name.length && body.code.length) {
@@ -46,7 +49,7 @@ export async function POST(request: Request) {
                 });
 
                 return NextResponse.json({ success: addToWishlistResult.rowCount === 1 }, { status: 200 });
-             }
+            }
 
             return NextResponse.json({ error: true }, { status: 500 });
         }

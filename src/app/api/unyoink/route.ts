@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 
 import { UNYOINK } from '@/data/queries/item/delete';
 
@@ -13,7 +14,9 @@ export async function POST(request: Request) {
         if (unyoinkParams.yoinker.length && unyoinkParams.itemId > 0) {
             const result = await UNYOINK(unyoinkParams);
 
-            console.log(result);
+            revalidatePath('/');
+            revalidatePath('/thing/[code]', 'page');
+
             return NextResponse.json({ success: result.rowCount === 1 }, { status: 200 });
         }
 

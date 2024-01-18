@@ -1,16 +1,16 @@
 .card {
     border-radius: $component__border-radius;
     border: 1px solid $component__border-color;
-    background-color: #f2f2f2;
+    background-color: #222;
     padding: .75rem;
     position: relative;
     display: grid;
     grid-template-rows: auto 1fr;
     grid-gap: .5rem;
 
-    @media (prefers-color-scheme: dark) {
-        background-color: #222;
-    }
+    // TODO: Implement at some point (maybe)
+    //@media (prefers-color-scheme: dark) {
+    //}
 
     @media (min-width: $bp-tablet) {
         padding: 1rem;
@@ -52,13 +52,14 @@
     aspect-ratio: 1/1;
     background: $c-steelgrey-light;
     cursor: pointer;
+    border-radius: $component__border-radius__s;
+    overflow: hidden;
 }
 
 .image {
     object-fit: cover;
     width: 100%;
     height: 100%;
-    border-radius: $component__border-radius__s;
 }
 
 .imagePlaceholder {

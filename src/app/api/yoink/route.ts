@@ -1,7 +1,8 @@
 import { NextResponse } from 'next/server'
+import { revalidatePath } from 'next/cache'
 
 import { YOINK_ITEM } from '@/data/queries/item/create'
-import { FETCH_ITEM_YOINK } from '@/data/queries/item/get';
+import { FETCH_ITEM_YOINK } from '@/data/queries/item/get'
 
 export async function POST(request: Request) {
     try {
@@ -18,6 +19,9 @@ export async function POST(request: Request) {
             }
 
             const result = await YOINK_ITEM(body);
+
+            revalidatePath('/');
+            revalidatePath('/thing/[code]', 'page');
 
             return NextResponse.json({ success: result.rowCount === 1 }, { status: 200 });
         }

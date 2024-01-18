@@ -5,6 +5,9 @@ import { fetchItem } from '@/data/wishlist/fetchItem'
 import classes from './page.module.scss'
 import { YoinkDialog } from '@/components/yoinkDialog';
 
+export const revalidate = 3600;
+export const fetchCache = 'force-no-store';
+
 export default async function Thing({ params }: { params: { code: string } }) {
     const wishlistItemResult = await fetchItem(params.code);
 

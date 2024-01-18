@@ -4,6 +4,9 @@ import { fetchWishlist } from '@/data/wishlist/fetchWishlist'
 import { Wishlist } from '@/components/wishlist'
 import classes from './page.module.scss'
 
+export const revalidate = 3600;
+export const fetchCache = 'force-no-store';
+
 export default async function Home() {
     const wishlist = await fetchWishlist('all');
 
