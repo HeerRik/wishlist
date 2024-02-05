@@ -13,7 +13,7 @@ export const Wishlist = ({
         <div>
             <h2 className={classes.title}>{wishlist.name}</h2>
             <div className={classes.items}>
-                {wishlist.items?.map((wishlistItem, i) => (
+                {wishlist.items?.filter(item => process.env.VERCEL_ENV !== 'development' || !item.isYoinked).map((wishlistItem, i) => (
                     <WishlistItemCard
                         key={`${wishlistItem.code}_${i})`}
                         wishlistItem={wishlistItem}

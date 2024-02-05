@@ -1,14 +1,20 @@
 import Image from 'next/image'
-import { WishlistItem } from '@/types/wishlist'
+import type { WishlistItem } from '@/types/wishlist'
 import { fetchItem } from '@/data/wishlist/fetchItem'
 
-import classes from './page.module.scss'
 import { YoinkDialog } from '@/components/yoinkDialog';
 
-export const revalidate = 3600;
+import classes from './page.module.scss'
+
 export const fetchCache = 'force-no-store';
 
-export default async function Thing({ params }: { params: { code: string } }) {
+type PageProperties = {
+    params: {
+        code: string
+    }
+}
+
+export default async function Thing({ params }: PageProperties) {
     const wishlistItemResult = await fetchItem(params.code);
 
     if (Object.hasOwn(wishlistItemResult, 'error')) {
@@ -16,7 +22,7 @@ export default async function Thing({ params }: { params: { code: string } }) {
     }
     const wishlistItem = wishlistItemResult as WishlistItem;
     return (
-        <section className={classes.wishlistPage}>
+        <section>
             <div className={classes.card}>
                 <h1 className={classes.title}>
                     {wishlistItem.name}
@@ -40,8 +46,10 @@ export default async function Thing({ params }: { params: { code: string } }) {
                         wishlistItem.yoinkable ?
                             (
                                 !wishlistItem.isYoinked
-                                    ? <YoinkDialog wishlistItem={wishlistItem}/>
-                                    : <p>Helaas al geyoinkt</p>
+                                    ? (<div className={classes.yoinkButton}>
+                                        <YoinkDialog wishlistItem={wishlistItem}/>
+                                    </div>)
+                                    : <p>{'Helaas al geyoinkt'}</p>
                             )
                             : null
                     )}

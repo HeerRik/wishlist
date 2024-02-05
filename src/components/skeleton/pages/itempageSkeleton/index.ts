@@ -1,0 +1,1 @@
+export { ItempageSkeleton } from './itempageSkeleton'

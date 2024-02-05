@@ -1,8 +1,8 @@
-import { NextResponse } from 'next/server';
+import { NextResponse } from 'next/server'
 
 import {
     ADD_TO_WISHLIST
-} from '@/data/queries/item/create';
+} from '@/data/queries/item/create'
 
 export async function POST(request: Request) {
     try {

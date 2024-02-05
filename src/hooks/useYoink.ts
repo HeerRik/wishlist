@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState } from 'react'
 import { useAPI } from '@/hooks/useAPI'
-import { UNYOINK } from '@/data/queries/item/delete';
 
 export const useYoink = () => {
     const [loading, setLoading] = useState(false);

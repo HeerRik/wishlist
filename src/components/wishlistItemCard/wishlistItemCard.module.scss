@@ -79,8 +79,13 @@
 }
 
 .title {
-    font-size: 1.25rem;
-    line-height: 2rem;
+    font-size: 1rem;
+    line-height: 1.5rem;
+
+    @media (min-width: $bp-mobile) {
+        font-size: 1.25rem;
+        line-height: 2rem;
+    }
 }
 
 .shortDescription {
@@ -92,4 +97,46 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.skeleton {
+
+    .linkButton {
+        padding: .5rem 1rem;
+        line-height: 1.5rem;
+        font-size: 1rem;
+        background: $c-steelgrey;
+        color: $c-steelgrey;
+        border-radius: $component__border-radius__s;
+        border: 1px solid $c-steelgrey;
+    }
+
+    .yoinkButton {
+        padding: 1.25rem 1rem;
+        background: $c-steelgrey;
+        color: $c-steelgrey;
+        border-radius: $component__border-radius__s;
+        border: 1px solid $c-steelgrey;
+        width: 90px;
+    }
+
+    .title {
+        height: 1rem;
+        margin: .25rem 0;
+        width: 160px;
+        border-radius: $component__border-radius__s;
+        background: $c-steelgrey;
+
+        @media (min-width: $bp-mobile) {
+            height: 1.5rem;
+        }
+    }
+
+    .shortDescription {
+        height: 1rem;
+        margin: .125rem 0;
+        width: 140px;
+        border-radius: $component__border-radius__s;
+        background: $c-steelgrey;
+    }
 }

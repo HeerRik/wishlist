@@ -8,30 +8,6 @@ import {
     ADD_TO_WISHLIST,
 } from '@/data/queries/item/create'
 
-export async function GET(request: Request) {
-    try {
-        const { searchParams } = new URL(request.url);
-        const newItem: Omit<SQLWishlistItem, 'id' | 'isYoinked'> = {
-            name: searchParams.get('name') || '',
-            code: searchParams.get('code') || '',
-            image: searchParams.get('image') || '',
-            short_description: searchParams.get('short_description') || '',
-            description: searchParams.get('description') || '',
-        };
-
-        if (newItem.name.length && newItem.code.length) {
-            const result = await INSERT_ITEM(newItem);
-            revalidatePath('/');
-
-            return NextResponse.json({ result }, { status: 200 });
-        }
-
-        return NextResponse.json({ 'error': 'invalid input' }, { status: 422 });
-    } catch (error) {
-        return NextResponse.json({ error }, { status: 500 });
-    }
-}
-
 export async function POST(request: Request) {
     try {
         const body = await request.json() as Omit<SQLWishlistItem, 'id' | 'is_yoinked'> & { pass: string; }
@@ -47,6 +23,8 @@ export async function POST(request: Request) {
                     wishlistId: 1,
                     itemId: result.rows[0].id,
                 });
+
+                revalidatePath('/');
 
                 return NextResponse.json({ success: addToWishlistResult.rowCount === 1 }, { status: 200 });
             }

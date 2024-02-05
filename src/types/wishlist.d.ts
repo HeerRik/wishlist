@@ -13,5 +13,5 @@ export interface Wishlist {
     id: number;
     code: string;
     name: string;
-    items?: WishlistItem[];
+    items: WishlistItem[];
 }

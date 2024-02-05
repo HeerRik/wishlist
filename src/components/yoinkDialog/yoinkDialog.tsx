@@ -1,6 +1,7 @@
 "use client"
-import { FormEvent } from 'react'
+import type { FormEvent } from 'react'
 import { useState } from 'react'
+
 import type { WishlistItem } from '@/types/wishlist'
 import { useYoink } from '@/hooks/useYoink'
 import { Button } from '@/components/button'

@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server'
 import { revalidatePath } from 'next/cache'
 
-import { UNYOINK } from '@/data/queries/item/delete';
+import { UNYOINK } from '@/data/queries/item/delete'
 
 export async function POST(request: Request) {
     try {

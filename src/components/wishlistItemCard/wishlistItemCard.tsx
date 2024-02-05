@@ -1,5 +1,5 @@
-import Image from 'next/image';
-import Link from 'next/link';
+import Image from 'next/image'
+import Link from 'next/link'
 import type { WishlistItem } from '@/types/wishlist'
 
 import { LinkButton } from '@/components/button'

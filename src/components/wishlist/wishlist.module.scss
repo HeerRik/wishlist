@@ -25,3 +25,13 @@
         grid-template-columns: repeat(6, 1fr);
     }
 }
+
+.skeleton {
+    .title {
+        height: 1rem;
+        margin: .125rem 0 1.125rem;
+        width: 100px;
+        border-radius: $component__border-radius__s;
+        background: $c-steelgrey
+    }
+}

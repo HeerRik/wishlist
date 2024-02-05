@@ -2,6 +2,7 @@ import { WishlistItem } from '@/types/wishlist'
 import { SQLWishlistItem } from '@/types/sql/wishlist'
 
 const mapWishlistItem = (resultFromDatabase: SQLWishlistItem): WishlistItem => {
+
     return {
         id: resultFromDatabase.id,
         code: resultFromDatabase.code || '',

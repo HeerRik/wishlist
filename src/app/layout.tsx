@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export const metadata: Metadata = {
     title: 'De grote meuk-lijst',
     description: 'Rikkert moet het ergens bijhouden',
-    robots: 'noindex'
+    robots: 'noindex',
 }
 
 export default function RootLayout({

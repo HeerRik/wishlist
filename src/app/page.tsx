@@ -12,7 +12,7 @@ export default async function Home() {
 
     return (
         <div>
-            <h1>{'Augurik\'s meuklijst'}</h1>
+            <h1 className={classes.title}>{'Augurik\'s meuklijst'}</h1>
             <section>
                 {Object.hasOwn(wishlist, 'error') ? (
                     <div>{'Oeps'}</div>

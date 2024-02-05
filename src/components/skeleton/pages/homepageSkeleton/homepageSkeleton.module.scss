@@ -1,0 +1,12 @@
+.title {
+    width: 300px;
+    height: 2rem;
+    background-color: $c-steelgrey;
+    border-radius: $component__border-radius__s;
+    margin: 1rem 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+}
